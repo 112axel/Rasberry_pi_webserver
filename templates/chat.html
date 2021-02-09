@@ -11,7 +11,7 @@
     <script type = "text/javascript">
 
     $(document).ready(function(){
-        var socket = io.connect("http://192.168.1.103:80")
+        var socket = io.connect( "{{ip_address}}" )
 
         socket.on("connect",function(){
 
