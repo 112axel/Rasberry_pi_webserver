@@ -14,10 +14,10 @@ def valid_ip_addresses():
     """find all network interfaces that are on the local network"""
     temp = []
 
-    for i in psutil.net_if_addrs():
-        
-        if re.match(r"192\.168\..+\..+",psutil.net_if_addrs()[i][1][1]):
-            temp.append(psutil.net_if_addrs()[i][1][1])
+    for i in psutil.net_if_addrs().items():
+        for j in i[1]:
+            if re.match(r"192\.168\..+\..+",j[1]):
+                temp.append(j[1])
             
     return temp
 
