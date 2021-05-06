@@ -3,7 +3,7 @@ from flask_socketio import SocketIO,send #4.3.2
 import psutil
 import re
 
-#import db_handler as db
+import db_handler as db
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "test" #better password needed
@@ -22,10 +22,13 @@ def valid_ip_addresses():
     return temp
 
 def picker(choise_list):
+
     if len(choise_list) == 1:
         return choise_list[0]
+
     for n,i in enumerate(choise_list):
         print(str(n+1)+":"+i)
+        
     return choise_list[int(input("Type in mumber based on waht option you want to chose: "))-1]
 
 socket_ip_address = picker(valid_ip_addresses())
